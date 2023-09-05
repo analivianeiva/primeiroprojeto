@@ -1,25 +1,46 @@
 import logo from './logo.svg';
 import './App.css';
+import {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  state = {
+  posts:[
+    {
+      id:1,
+      titulo: 'Titulo 1',
+      conteudo: 'Conteudo 1'
+      
+    },
+    {
+      id:2,
+      titulo: 'Titulo 2',
+      conteudo: 'Conteudo 2'
+    },
+    {
+      id:3,
+      titulo: 'Titulo 3',
+      conteudo: 'Conteudo 3'
+    }
+  ]
+   
+  }
+
+render(){
+  const{posts}= this.state;//Atribuição via desestruturação
+  return(
+    <div> 
+      {posts.map(post => (
+       <div key={post.id}>
+
+       <h1> {post.titulo} </h1>
+       <p> {post.conteudo} </p>
+
+       </div>
+
+       ))}
+     </div>
+  )
+ }
 }
 
 export default App;
